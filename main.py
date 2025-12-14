@@ -32,7 +32,7 @@ def get_calendar_service():
     return build("calendar", "v3", credentials=creds)
 
 # -------------------- MAIN API ENDPOINT -------------------- #
-@app.route("/", methods=["POST"])
+@app.route("/reminder", methods=["POST"])
 def create_reminder():
     try:
         data = request.get_json(force=True)
@@ -83,3 +83,4 @@ def create_reminder():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 6000))
     app.run(host="0.0.0.0", port=port)
+
